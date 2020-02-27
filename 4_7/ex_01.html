@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: black;
+        color: whitesmoke;
+        font-size: 20px;
+        line-height: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+
+<body>
+    <div id='main-text'>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, omnis. Necessitatibus consectetur eaque quia soluta quisquam dicta dignissimos animi voluptatibus!
+    </div>
+    <ul>
+        <li>background: <input type="color" id="background"></li>
+        <li>font-color: <input type="color" id="font-color"></li>
+        <li>font-size (px): <input type="number" id="font-size"></li>
+        <li>line-height (px): <input type="number" id="line-height"></li>
+        <li>font-family: <input type="text" id="font-family"></li>
+    </ul>
+
+    <script>
+        window.onload = function() {
+                //Background
+                function changeBg() {
+                    document.body.style.backgroundColor = document.getElementById('background').value;
+                    if (typeof(Storage) != 'undefined') {
+                        localStorage.setItem('bgColor', document.getElementById('background').value);
+                    }
+                }
+                document.body.addEventListener('change', changeBg);
+                if (localStorage.getItem("bgColor") && typeof(Storage) != "undefined") {
+                    document.body.style.backgroundColor = localStorage.getItem("bgColor")
+                }
+
+                //Font color
+                function changeFontColor() {
+                    document.body.style.color = document.getElementById('font-color').value
+                    if (typeof(Storage) != 'undefined') {
+                        localStorage.setItem('fontColor', document.getElementById('font-color').value);
+                    }
+                }
+                document.body, addEventListener('change', changeFontColor);
+                if (localStorage.getItem("fontColor") && typeof(Storage) != 'undefined') {
+                    document.body.style.color = localStorage.getItem('fontColor');
+                }
+                //Font Size
+                function changeFontSize() {
+                    document.body.style.fontSize = document.getElementById('font-size').value + 'px'
+                    if (typeof(Storage) != 'undefined') {
+                        localStorage.setItem('fontSize', document.getElementById('font-size').value);
+                    }
+                }
+                document.body.addEventListener('change', changeFontSize);
+                if (localStorage.getItem("fontSize") && typeof(Storage) != 'undefined') {
+                    document.body.style.fontSize = localStorage.getItem('fontSize' + 'px');
+                }
+
+                //Line Height
+                function changeLineHeight() {
+                    document.body.style.lineHeight = document.getElementById('line-height').value + 'px'
+                    if (typeof(Storage) != 'undefined') {
+                        localStorage.setItem('lineHeight', document.getElementById('line-height').value);
+                    }
+                }
+                document.body.addEventListener('change', changeLineHeight);
+                if (localStorage.getItem("lineHeight") && typeof(Storage) != 'undefined') {
+                    document.body.style.lineHeight = localStorage.getItem('lineHeight' + 'px');
+                }
+
+            }
+            // document.getElementById('main-text').style.fontFamily = document.getElementById('font-family').value
+    </script>
+</body>
+
+</html>
