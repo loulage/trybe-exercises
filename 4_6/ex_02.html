@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Calculator</title>
+</head>
+
+<body>
+
+    <label>Square this number:
+    <input type="number" id="square-input" size="2">
+  </label>
+    <button id="square-button">Calculate</button>
+    <br><br>
+
+    <label>Half this number:
+    <input type="number" id="half-input" size="2">
+  </label>
+    <button id="half-button">Calculate</button>
+    <br><br>
+
+    <label>
+    Fraction:
+    <input type="number" id="percent1-input" size="2">
+  </label>
+    <label>
+    Whole:
+    <input type="number" id="percent2-input" size="2">
+  </label>
+    <button id="percent-button">Calculate</button>
+    <br><br>
+
+    <label>Calculate area of circle with radius:
+    <input type="number" id="area-input" size="2">
+  </label>
+    <button id="area-button">Calculate</button>
+    <br><br>
+    <div id="solution"></div>
+
+    <script>
+        window.onload = function() {
+            let divSolution = document.getElementById('solution');
+            //square
+            function square() {
+                let square = document.getElementById('square-input').value;
+                divSolution.innerHTML = 'O quadrado de ' + square + " " + "=" + " " + square ** 2;
+            }
+            let squareBtn = document.getElementById("square-button");
+            squareBtn.addEventListener('click', square);
+
+            //Half
+            function half() {
+                let half = document.getElementById('half-input').value;
+                divSolution.innerHTML = 'A metade de  ' + half + " " + "=" + " " + half / 2;
+            }
+            let halfBtn = document.getElementById("half-button");
+            halfBtn.addEventListener('click', half);
+        }
+    </script>
+
+</body>
+
+</html>
