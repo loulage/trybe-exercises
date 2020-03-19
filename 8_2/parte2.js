@@ -26,3 +26,10 @@ const alterObjValue = (obj, key, value) => {
     return obj;
 }
 console.log(alterObjValue(lesson2, 'turno', 'manhã'));
+
+/*ex2 : Crie uma função para listar as keys de um objeto. 
+Essa função deve receber um objeto como parâmetro.*/
+const listObjectKeys = (obj) => {
+    return Object.keys(obj);
+}
+console.log(listObjectKeys(lesson1));
