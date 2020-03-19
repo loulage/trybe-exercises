@@ -33,3 +33,9 @@ const listObjectKeys = (obj) => {
     return Object.keys(obj);
 }
 console.log(listObjectKeys(lesson1));
+
+/*ex3 : Crie uma função para mostrar o tamanho de um objeto. */
+const objectLength = (obj) => {
+    return Object.keys(obj).length;
+}
+console.log(objectLength(lesson3));
