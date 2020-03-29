@@ -62,12 +62,22 @@ const books = [{
     },
 ];
 
-const allNames = (arr) => {
-    const mapNames = arr.map(element => (element.author.name));
-    const oneStringNames = mapNames.reduce((acc, cv) => `${acc}, ${cv}`);
-    console.log(oneStringNames)
-    return `Nomes: ${oneStringNames}`;
-}
-allNames(books);
+const expected_result = {
+    author: {
+        birthYear: 1948,
+        name: 'George R. R. Martin'
+    },
+    genre: 'Fantasia',
+    id: 1,
+    name: 'As Crônicas de Gelo e Fogo',
+    releaseYear: 1991
+};
 
-assert.deepEqual(allNames(books), "Nomes: George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Frank Herbert, Stephen King, H. P. Lovecraft.");
+const getNamedBook = () => {
+    const namedbook = books.find((element) => {
+        return element.name.length == 26
+    });
+    return namedbook;
+}
+
+assert.deepEqual(getNamedBook(), expected_result);
