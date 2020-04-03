@@ -1,0 +1,41 @@
+body {}
+
+h1 {}
+
+h2 {}
+
+img {
+    max-width: 100%;
+}
+
+figure {
+    margin: 0;
+}
+
+@media (min-width: 525px) {}
+
+@media (max-width: 520px) {
+    body {
+        margin: 0;
+        width: 100%;
+        background: blue;
+        padding: 0 10px;
+        display: flex;
+        flex-flow: column wrap;
+    }
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    figure {
+        width: 49%;
+        height: auto;
+        padding: 1px;
+    }
+    figcaption {
+        display: none;
+    }
+    img {
+        max-width: 100%;
+    }
+}
