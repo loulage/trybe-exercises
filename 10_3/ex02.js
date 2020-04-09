@@ -5,4 +5,4 @@ let promise = new Promise((resolve, reject) => {
     console.log(sumRandomArr);
     if (sumRandomArr >= 8000) resolve();
     else reject();
-})
+})  
