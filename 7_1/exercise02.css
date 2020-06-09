@@ -1,9 +1,37 @@
-html {
-    box-sizing: border-box;
+.container {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+ul {
+    list-style: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    padding-right: 1em;
+    font-size: 1em;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.5)
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    align-self: center;
+    text-align: center;
+}
+
+h1 {}
