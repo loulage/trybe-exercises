@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import fetchApi from './Api';
+class App extends React.Component {
+constructor(props) {
+  super(props)
 
-function App() {
+  this.state = {
+    apiData: '',
+  }
+  this.fetchApi = this.fetchApi.bind(this);
+}
+
+fetchApi() {
+fetch('https://dog.ceo/api/breeds/image/random').then((response) => {
+  response.json()
+    .then((data) => this.setState({apiData: data}));
+})
+}
+
+componentDidMount() {
+  this.fetchApi();
+}
+
+ render() {
+  const {apiData} = this.state;
+  if (apiData === '') return <p>Loading...</p>
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <img src={apiData.message} alt='' />
+    <button type='text' onClick={this.fetchApi}>Novo Dog</button>
     </div>
   );
+}
+
 }
 
 export default App;
