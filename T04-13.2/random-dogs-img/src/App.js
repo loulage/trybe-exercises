@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import fetchApi from './Api';
 class App extends React.Component {
 constructor(props) {
   super(props)
@@ -12,15 +11,35 @@ constructor(props) {
 }
 
 fetchApi() {
-fetch('https://dog.ceo/api/breeds/image/random').then((response) => {
-  response.json()
-    .then((data) => this.setState({apiData: data}));
-})
+  fetch('https://dog.ceo/api/breeds/image/random').then((response) => {
+    response.json()
+      .then((data) => this.setState({apiData: data}));
+  })
 }
 
 componentDidMount() {
   this.fetchApi();
 }
+
+componentDidUpdate() {
+  localStorage.setItem("dogURL", this.state.apiData.message);
+  const split = this.state.apiData.message.split("/");
+  console.log(split)
+  const dogBreed = this.state.apiData.message.split("/")[4];
+  alert (dogBreed);
+};
+
+// Se shouldComponentUpdate for falso, aplicação não sofrerá updtate.
+shouldComponentUpdate(nextProps, nextState) {
+  if (nextState.apiData.message.includes("terrier")) {
+    return false;
+  }
+  return true;
+} 
+
+
+
+
 
  render() {
   const {apiData} = this.state;
